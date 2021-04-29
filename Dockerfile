@@ -9,7 +9,7 @@ LABEL "repository"="https://github.com/lgeiger/black-action"
 LABEL "homepage"="https://github.com/lgeiger/black-action"
 LABEL "maintainer"="Lukas Geiger <lukas.geiger94@gmail.com>"
 
-RUN pip install black
+RUN pip install black==21.4b1
 
 COPY entrypoint.sh /entrypoint.sh
 
