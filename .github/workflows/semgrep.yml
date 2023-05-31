@@ -1,0 +1,9 @@
+name: Call a reusable workflow
+on:
+  workflow_dispatch: {}
+  pull_request: {}
+jobs:
+  call-workflow-passing-data:
+    uses: tripactions/ta-seceng-automation/.github/workflows/reusable.yml@main
+    secrets:
+      SEMGREP_REUSABLE_TOKEN: ${{ secrets.SEMGREP_ORG_APP_TOKEN }}
