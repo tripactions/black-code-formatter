@@ -1,0 +1,20 @@
+name: Maintenance
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Run everyday at 8am GMT
+    - cron: "0 8 * * *"
+
+permissions:
+  pull-requests: write
+  contents: read
+
+jobs:
+  maintenance:
+    name: Maintenance
+    uses: tripactions/actions/.github/workflows/maintenance.yml@v1.4
+    secrets:
+      GH_NAVAN_BOT: ${{ secrets.GH_NAVAN_BOT }}
+    with:
+      dry-run: false

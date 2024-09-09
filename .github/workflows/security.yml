@@ -1,0 +1,19 @@
+name: Security
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  scan:
+    name: Scan
+    uses: tripactions/actions/.github/workflows/security.yml@v1.4
+    secrets:
+      SEMGREP_ORG_APP_TOKEN: ${{ secrets.SEMGREP_ORG_APP_TOKEN }}
